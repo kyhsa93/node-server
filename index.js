@@ -11,5 +11,5 @@ var app = express();
 
 //server start
 app.listen(port, () => {
-    console.log(`qexpress app listening on port ${port}!`);
+    console.log(`express app listening on port ${port}!`);
 });
