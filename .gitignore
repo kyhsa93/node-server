@@ -1,0 +1,8 @@
+node_modules
+
+# ignore dotfiles
+.*
+
+!.gitignore
+
+coverage
