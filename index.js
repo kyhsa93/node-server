@@ -8,9 +8,14 @@ var bparser = require('body-parser');
 
 var app = express();
 
+// midleware
+var header = require('./src/middleware/header');
+
 //routes
 var postTest = require('./src/routes/post-test/post-test');
 var getTest = require('./src/routes/get-test/get-test');
+
+app.use(header());
 
 //body parser
 app.use(bparser.urlencoded({extended: true}));
