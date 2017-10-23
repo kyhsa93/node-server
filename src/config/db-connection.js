@@ -1,5 +1,8 @@
 var mysql = require('mysql');
 
+/**
+ * DB info for connection
+ */
 var pool = mysql.createPool({
     host: 'localhost',
     port: 3306,

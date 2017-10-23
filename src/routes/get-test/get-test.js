@@ -1,6 +1,11 @@
 var GetTestDao = require('../../dao/GetTestdao');
 var co = require('../../util/co');
 
+/**
+ * @type {function} using for testing GET method
+ * @param {Object} request http reqeust
+ * @param {Object} respones http response
+ */
 module.exports = (request, response) => {
     var getData = request.params.getData;
     var getTestDao = new GetTestDao();
