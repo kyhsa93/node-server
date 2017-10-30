@@ -16,6 +16,8 @@ var postTest = require('./src/routes/post-test/post-test');
 var getTest = require('./src/routes/get-test/get-test');
 var login = require('./src/routes/login/login');
 var signUp = require('./src/routes/sign-up/sign-up');
+var writePost = require('./src/routes/write-post/write-post');
+var getPosttList = require('./src/routes/get-post-list/get-post-list');
 
 app.use(header());
 
@@ -28,6 +30,8 @@ app.post('/post-test', postTest);
 app.get('/get-test/:getData', getTest);
 app.post('/login', login);
 app.post('/sign-up', signUp);
+app.post('/write-post', writePost);
+app.get('/get-post-list/:category', getPosttList);
 
 //server start
 app.listen(port, () => {
