@@ -15,9 +15,11 @@ var header = require('./src/middleware/header');
 var postTest = require('./src/routes/post-test/post-test');
 var getTest = require('./src/routes/get-test/get-test');
 var login = require('./src/routes/login/login');
-var signUp = require('./src/routes/sign-up/sign-up');
+var signUp = require('./src/routes/sign-up-data/sign-up');
 var writePost = require('./src/routes/write-post/write-post');
 var getPosttList = require('./src/routes/get-post-list/get-post-list');
+var myPageData = require('./src/routes/sign-up-data/my-page');
+var updateSignUp = require('./src/routes/sign-up-data/update-data');
 
 app.use(header());
 
@@ -32,6 +34,8 @@ app.post('/login', login);
 app.post('/sign-up', signUp);
 app.post('/write-post', writePost);
 app.get('/get-post-list/:category', getPosttList);
+app.get('/my-page-data/:id', myPageData);
+app.post('/update-sign-up-data', updateSignUp);
 
 //server start
 app.listen(port, () => {
