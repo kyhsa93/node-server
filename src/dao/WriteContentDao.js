@@ -1,7 +1,7 @@
 var db = require('../config/db-connection');
 var pool = db.connectionPool;
 
-var INSERT_POST_SQL = `INSERT INTO
+var INSERT_CONTENT_SQL = `INSERT INTO
     test.contents
 SET
     title = ?,
@@ -9,14 +9,14 @@ SET
     content = ?,
     id = ?`;
 
-var SELECT_POST_SQL = `SELECT
+var SELECT_CONTENT_SQL = `SELECT
     *
 FROM
     test.contents
 WHERE
     seq = ?`;
 
-var UPDATE_POST_SQL = `UPDATE
+var UPDATE_CONTENT_SQL = `UPDATE
     test.contents
 SET
     title = ?,
@@ -25,16 +25,16 @@ SET
 WHERE
     seq = ?`;
 
-module.exports = class WritePostDao {
+module.exports = class WriteContentDao {
     constructor () {}
 
     /**
      * @type {function}
-     * @param {Array} postData
+     * @param {Array} contentData
      * @param {function} callBack
      */
-    insertPostData(postData, callBack) {
-        pool.query(INSERT_POST_SQL, postData, (error, result) => {
+    insertContentData(contentData, callBack) {
+        pool.query(INSERT_CONTENT_SQL, contentData, (error, result) => {
             callBack(result);
         });
     }
@@ -44,19 +44,19 @@ module.exports = class WritePostDao {
      * @param {number} seq
      * @param {function} callBack
      */
-    selectPostData(seq, callBack) {
-        pool.query(SELECT_POST_SQL, seq, (error, result) => {
+    selectContentData(seq, callBack) {
+        pool.query(SELECT_CONTENT_SQL, seq, (error, result) => {
             callBack(result);
         });
     }
 
     /**
      * @type {function}
-     * @param {array} postData
+     * @param {array} contentData
      * @param {function} callBack
      */
-    updatePostData(postData, callBack) {
-        pool.query(UPDATE_POST_SQL, postData, (error, result) => {
+    updateContentData(contentData, callBack) {
+        pool.query(UPDATE_CONTENT_SQL, contentData, (error, result) => {
             callBack(result);
         });
     }

@@ -16,12 +16,12 @@ var postTest = require('./src/routes/post-test/post-test');
 var getTest = require('./src/routes/get-test/get-test');
 var login = require('./src/routes/login/login');
 var signUp = require('./src/routes/sign-up-data/sign-up');
-var writePost = require('./src/routes/write-post/write-post');
-var getPosttList = require('./src/routes/get-post-list/get-post-list');
+var writeContent = require('./src/routes/write-content/write-content');
+var getContentsList = require('./src/routes/get-contents-list/get-contents-list');
 var myPageData = require('./src/routes/sign-up-data/my-page');
 var updateSignUp = require('./src/routes/sign-up-data/update-data');
-var selectPost = require('./src/routes/write-post/select-post');
-var updatePost = require('./src/routes/write-post/update-post');
+var selectContent = require('./src/routes/write-content/select-content');
+var updateContent = require('./src/routes/write-content/update-content');
 
 app.use(header());
 
@@ -34,12 +34,12 @@ app.post('/post-test', postTest);
 app.get('/get-test/:getData', getTest);
 app.post('/login', login);
 app.post('/sign-up', signUp);
-app.post('/write-post', writePost);
-app.get('/get-post-list/:category', getPosttList);
+app.post('/write-content', writeContent);
+app.get('/get-contents-list/:category', getContentsList);
 app.get('/my-page-data/:id', myPageData);
 app.post('/update-sign-up-data', updateSignUp);
-app.get('/select-content/:seq', selectPost);
-app.post('/update-content', updatePost);
+app.get('/select-content/:seq', selectContent);
+app.post('/update-content', updateContent);
 
 //server start
 app.listen(port, () => {
