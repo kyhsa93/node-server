@@ -6,7 +6,8 @@ var INSERT_POST_SQL = `INSERT INTO
 SET
     title = ?,
     category = ?,
-    content = ?`;
+    content = ?,
+    id = ?`;
 
 var SELECT_POST_SQL = `SELECT
     *

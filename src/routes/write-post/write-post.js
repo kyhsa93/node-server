@@ -11,7 +11,8 @@ module.exports = (request, response) => {
     var postData = [
         request.body[0],
         request.body[1],
-        request.body[2]
+        request.body[2],
+        request.body[3]
     ];
     co(function* () {
         var result = yield callback => writePostDao.insertPostData(postData, callback);
