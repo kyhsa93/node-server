@@ -20,6 +20,8 @@ var writePost = require('./src/routes/write-post/write-post');
 var getPosttList = require('./src/routes/get-post-list/get-post-list');
 var myPageData = require('./src/routes/sign-up-data/my-page');
 var updateSignUp = require('./src/routes/sign-up-data/update-data');
+var selectPost = require('./src/routes/write-post/select-post');
+var updatePost = require('./src/routes/write-post/update-post');
 
 app.use(header());
 
@@ -36,6 +38,8 @@ app.post('/write-post', writePost);
 app.get('/get-post-list/:category', getPosttList);
 app.get('/my-page-data/:id', myPageData);
 app.post('/update-sign-up-data', updateSignUp);
+app.get('/select-content/:seq', selectPost);
+app.post('/update-content', updatePost);
 
 //server start
 app.listen(port, () => {
