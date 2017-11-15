@@ -11,7 +11,8 @@ module.exports = (request, response) => {
     var signUpData = [
         request.body.id,
         request.body.password,
-        request.body.name
+        request.body.name,
+        request.body.phone
     ];
     co(function* () {
         var selectResult = yield callBack => {

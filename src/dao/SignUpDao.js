@@ -9,7 +9,8 @@ var INSERT_SIGN_UP_DATA_SQL = `INSERT INTO
 SET
     id = ?,
     password = ?,
-    name = ?`;
+    name = ?,
+    phone = ?`;
 
 /**
  * @type {string} select sign up data
