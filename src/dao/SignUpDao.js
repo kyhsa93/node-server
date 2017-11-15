@@ -50,7 +50,7 @@ module.exports = class SignUpDao {
      * @param {string} id userid
      * @param {function} callBack
      */
-    selectSingUpDataById (id, callBack) {
+    selectSignUpDataById (id, callBack) {
         pool.query(SELECT_SIGN_UP_DATA_BY_ID, id, (error, result) => {
             callBack(result);
         });

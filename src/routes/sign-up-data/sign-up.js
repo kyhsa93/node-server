@@ -14,7 +14,18 @@ module.exports = (request, response) => {
         request.body.name
     ];
     co(function* () {
-        var result = yield callBack => signUpDao.insertSignUpdata(signUpData, callBack);
-        result ? response.sendStatus(200) : response.sendStatus(400);
+        var selectResult = yield callBack => {
+            signUpDao.selectSignUpDataById(signUpData[0], callBack);
+        };
+        if (selectResult.length == 0) {
+            var insertResult = yield callBack => {
+                signUpDao.insertSignUpdata(signUpData, callBack);
+            };
+            insertResult ?
+                response.status(200).send('success') :
+                response.status(400).send('fail');
+            return;
+        }
+        response.status(400).send('existed');
     });
 };
