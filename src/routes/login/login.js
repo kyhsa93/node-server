@@ -14,7 +14,7 @@ module.exports = (request, response) => {
     ];
 
     co (function* () {
-        var result = yield callback => loginDao.selectForLogin(loginData, callback);
+        var result = yield callBack => loginDao.selectForLogin(loginData, callBack);
         result ? response.sendStatus(200) : response.sendStatus(400);
     });
 };

@@ -17,18 +17,18 @@ module.exports = class LoginDao {
     /**
      * @type {function} select data for login
      * @param {Array<string>} loginData [loginId, loginPassword]
-     * @param {function} callback
+     * @param {function} callBack
      */
-    selectForLogin(loginData, callback) {
+    selectForLogin(loginData, callBack) {
         pool.query(SELECT_FOR_LOGIN_SQL, loginData[0], (error, result) => {
             if (result.length) {
                 if (result[0].password == loginData[1]) {
-                    callback(result);
+                    callBack(result);
                 } else {
-                    callback(error);
+                    callBack(error);
                 }
             } else {
-                callback(error);
+                callBack(error);
             }
         });
     }

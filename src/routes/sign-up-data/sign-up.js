@@ -11,10 +11,22 @@ module.exports = (request, response) => {
     var signUpData = [
         request.body.id,
         request.body.password,
-        request.body.name
+        request.body.name,
+        request.body.phone
     ];
     co(function* () {
-        var result = yield callBack => signUpDao.insertSignUpdata(signUpData, callBack);
-        result ? response.sendStatus(200) : response.sendStatus(400);
+        var selectResult = yield callBack => {
+            signUpDao.selectSignUpDataById(signUpData[0], callBack);
+        };
+        if (selectResult.length == 0) {
+            var insertResult = yield callBack => {
+                signUpDao.insertSignUpdata(signUpData, callBack);
+            };
+            insertResult ?
+                response.status(200).send('success') :
+                response.status(400).send('fail');
+            return;
+        }
+        response.status(400).send('existed');
     });
 };

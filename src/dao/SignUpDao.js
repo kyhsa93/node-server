@@ -9,7 +9,8 @@ var INSERT_SIGN_UP_DATA_SQL = `INSERT INTO
 SET
     id = ?,
     password = ?,
-    name = ?`;
+    name = ?,
+    phone = ?`;
 
 /**
  * @type {string} select sign up data
@@ -50,7 +51,7 @@ module.exports = class SignUpDao {
      * @param {string} id userid
      * @param {function} callBack
      */
-    selectSingUpDataById (id, callBack) {
+    selectSignUpDataById (id, callBack) {
         pool.query(SELECT_SIGN_UP_DATA_BY_ID, id, (error, result) => {
             callBack(result);
         });
