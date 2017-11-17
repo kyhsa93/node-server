@@ -8,7 +8,7 @@ var INSERT_SIGN_UP_DATA_SQL = `INSERT INTO
     test.test
 SET
     id = ?,
-    password = ?,
+    password = password(?),
     name = ?,
     phone = ?`;
 
@@ -28,7 +28,8 @@ WHERE
 var UPDATE_SIGN_UP_DATA_BY_ID = `UPDATE
     test.test
 SET
-    password = ?
+    password = password(?),
+    phone = ?
 WHERE
     id = ?`;
 
