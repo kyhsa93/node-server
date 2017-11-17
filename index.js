@@ -18,10 +18,11 @@ var login = require('./src/routes/login/login');
 var signUp = require('./src/routes/sign-up-data/sign-up');
 var writeContent = require('./src/routes/write-content/write-content');
 var getContentsList = require('./src/routes/get-contents-list/get-contents-list');
-var myPageData = require('./src/routes/sign-up-data/my-page');
+var myPageData = require('./src/routes/sign-up-data/select-data');
 var updateSignUp = require('./src/routes/sign-up-data/update-data');
 var selectContent = require('./src/routes/write-content/select-content');
 var updateContent = require('./src/routes/write-content/update-content');
+var findAccount = require('./src/routes/sign-up-data/find-account');
 
 app.use(header());
 
@@ -36,10 +37,11 @@ app.post('/login', login);
 app.post('/sign-up', signUp);
 app.post('/write-content', writeContent);
 app.get('/get-contents-list/:category', getContentsList);
-app.get('/my-page-data/:id', myPageData);
+app.get('/select-sign-up-data/:id', myPageData);
 app.post('/update-sign-up-data', updateSignUp);
 app.get('/select-content/:seq', selectContent);
 app.post('/update-content', updateContent);
+app.post('/find-account', findAccount);
 
 //server start
 app.listen(port, () => {

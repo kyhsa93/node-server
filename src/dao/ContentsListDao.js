@@ -17,7 +17,7 @@ var SELECT_CONTENTS_LIST_HOME_SQL = `SELECT
 FROM
     test.contents`;
 
-module.exports = class GetContentListDao {
+module.exports = class ContentListDao {
     constructor () {}
 
     /**

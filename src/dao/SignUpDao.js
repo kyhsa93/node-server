@@ -33,12 +33,21 @@ SET
 WHERE
     id = ?`;
 
+var FIND_ACCOUNT_SQL = `SELECT
+    *
+FROM
+    test.test
+WHERE
+    name = ?
+AND
+    phone = ?`;
+
 module.exports = class SignUpDao {
     constructor () {}
 
     /**
-     * @type {function} insert sign up data
-     * @param {Array} signUpData sign up data
+     * @type {function}
+     * @param {Array} signUpData [id, password, name, phone]
      * @param {function} callback
      */
     insertSignUpdata (signUpData, callback) {
@@ -48,8 +57,8 @@ module.exports = class SignUpDao {
     }
 
     /**
-     * @type {function} select sign up data
-     * @param {string} id userid
+     * @type {function}
+     * @param {string} id
      * @param {function} callBack
      */
     selectSignUpDataById (id, callBack) {
@@ -59,12 +68,23 @@ module.exports = class SignUpDao {
     }
 
     /**
-     * @type {function} update sign up data
-     * @param {Array} updateData 
+     * @type {function}
+     * @param {Array} updateData [password, phone, id]
      * @param {funtion} callBack 
      */
     updateSignUpDataById (updateData, callBack) {
         pool.query(UPDATE_SIGN_UP_DATA_BY_ID, updateData, (error, result) => {
+            callBack(result);
+        });
+    }
+
+    /**
+     * @type {function}
+     * @param {array} accountData [name, phone]
+     * @param {function} callBack
+     */
+    findAccount (accountData, callBack) {
+        pool.query(FIND_ACCOUNT_SQL, accountData, (error, result) => {
             callBack(result);
         });
     }
